@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">글 양식 애드온</title>
+  <description xml:lang="ko">
+    글쓰기시 미리 지정한 양식을 적용하실 수 있습니다.
+  </description>
+  <version>0.1</version>
+  <date>2014-07-27</date>
+  <author email_address="SeungYeonYou.KR+XE@gmail.com" link="http://seungyeon.me/?xe">
+    <name xml:lang="ko">SeungXE</name>
+  </author>
+<extra_vars>
+<var name="format" type="textarea">
+<title xml:lang="ko">양식</title>
+<description xml:lang="ko">HTML 태그 사용 가능합니다. 글쓰기시 지정할 양식을 입력하세요.</description>
+</var>
+</extra_vars>
+</addon>
