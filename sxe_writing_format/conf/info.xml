@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
-  <title xml:lang="ko">글 양식 애드온</title>
-  <description xml:lang="ko">
-    글쓰기시 미리 지정한 양식을 적용하실 수 있습니다.
-  </description>
-  <version>0.1</version>
-  <date>2014-07-27</date>
-  <author email_address="SeungYeonYou.KR+XE@gmail.com" link="http://seungyeon.me/?xe">
-    <name xml:lang="ko">SeungXE</name>
-  </author>
-<extra_vars>
-<var name="format" type="textarea">
-<title xml:lang="ko">양식</title>
-<description xml:lang="ko">HTML 태그 사용 가능합니다. 글쓰기시 지정할 양식을 입력하세요.</description>
-</var>
-</extra_vars>
+	<title xml:lang="ko">글 양식 애드온</title>
+	<description xml:lang="ko">
+		글쓰기시 미리 지정한 양식을 적용하실 수 있습니다.
+	</description>
+	<version>0.2</version>
+	<date>2014-07-29</date>
+	<author email_address="SeungYeonYou.KR+XE@gmail.com" link="http://seungyeon.me/?xe">
+		<name xml:lang="ko">SeungXE</name>
+	</author>
+	<extra_vars>
+		<var name="to_apply" type="select">
+			<title xml:lang="ko">적용 대상</title>
+			<description xml:lang="ko">글 양식을 사이트 전체 또는 일부 mid에 적용하실 수 있습니다.</description>
+			<options value="all">
+				<title xml:lang="ko">
+					사이트 전체 적용 (하단 적용할 mid 입력 불필요)
+				</title>
+			</options>
+			<options value="mid">
+				<title xml:lang="ko">
+					게시판별 적용 (하단 mid 입력이 반드시 필요)
+				</title>
+			</options>
+		</var>
+		<var name="method" type="select">
+			<title xml:lang="ko">출력 메서드</title>
+			<description xml:lang="ko">잘 모르시는 경우 변경하지 마세요. JS를 추천하지만 일부 환경에서는 PHP로 해야 동작할 수 있습니다.</description>
+			<options value="js">
+				<title xml:lang="ko">
+					JS (DOM 로드 후 Editor가 로드되기 이전 먼저 content 에 val을 삽입)
+				</title>
+			</options>
+			<options value="php">
+				<title xml:lang="ko">
+					PHP (str_replace로 구문 바꿔치기)
+				</title>
+			</options>
+		</var>
+		<var name="write_method" type="select">
+			<title xml:lang="ko">입력 메서드</title>
+			<description xml:lang="ko">잘 모르시는 분은 절대 변경하지 마세요. 충분한 설명을 읽으신 후 사용바랍니다.현재 버전에서는 간단 입력만 사용 가능합니다.</description>
+			<options value="simple">
+				<title xml:lang="ko">
+					간단 입력 (최대 5개)
+				</title>
+			</options>
+			<!--<options value="json">
+				<title xml:lang="ko">
+					JSON 양식 (갯수 무한정.)
+				</title>
+			</options>-->
+		</var>
+		<!--<var name="json" type="textarea">
+			<title xml:lang="ko">JSON 양식</title>
+			<description xml:lang="ko">JSON 양식을 사용할 때만 사용 가능합니다.
+				JSON 양식은 다음과 같습니다.
+				{"apply":[{"1":["mid","names","separated","with","comma"]},{"2":["mid2","names2","separated2","with2","comma2"]}],"contents":{"1":"html contents","2":"html contents 2"}}
+			</description>
+		</var>-->
+		<var name="use_mid_1" type="text">
+			<title xml:lang="ko">양식 1을 적용할 mid</title>
+			<description xml:lang="ko">양식 1의 양식을 적용할 mid명을 입력하세요. , (콤마)로 구분하여 작성하시면 됩니다.</description>
+		</var>
+		<var name="use_mid_2" type="text">
+			<title xml:lang="ko">양식 2을 적용할 mid</title>
+			<description xml:lang="ko">양식 2의 양식을 적용할 mid명을 입력하세요. , (콤마)로 구분하여 작성하시면 됩니다.</description>
+		</var>
+		<var name="use_mid_3" type="text">
+			<title xml:lang="ko">양식 3을 적용할 mid</title>
+			<description xml:lang="ko">양식 3의 양식을 적용할 mid명을 입력하세요. , (콤마)로 구분하여 작성하시면 됩니다.</description>
+		</var>
+		<var name="use_mid_4" type="text">
+			<title xml:lang="ko">양식 4을 적용할 mid</title>
+			<description xml:lang="ko">양식 4의 양식을 적용할 mid명을 입력하세요. , (콤마)로 구분하여 작성하시면 됩니다.</description>
+		</var>
+		<var name="use_mid_5" type="text">
+			<title xml:lang="ko">양식 5을 적용할 mid</title>
+			<description xml:lang="ko">양식 5의 양식을 적용할 mid명을 입력하세요. , (콤마)로 구분하여 작성하시면 됩니다.</description>
+		</var>
+		<var name="template_1" type="textarea">
+			<title xml:lang="ko">양식 1</title>
+			<description xml:lang="ko">양식 1의 내용을 입력하세요. HTML 태그 사용 가능합니다.</description>
+		</var>
+		<var name="template_2" type="textarea">
+			<title xml:lang="ko">양식 2</title>
+			<description xml:lang="ko">양식 2의 내용을 입력하세요. HTML 태그 사용 가능합니다.</description>
+		</var>
+		<var name="template_3" type="textarea">
+			<title xml:lang="ko">양식 3</title>
+			<description xml:lang="ko">양식 3의 내용을 입력하세요. HTML 태그 사용 가능합니다.</description>
+		</var>
+		<var name="template_4" type="textarea">
+			<title xml:lang="ko">양식 4</title>
+			<description xml:lang="ko">양식 4의 내용을 입력하세요. HTML 태그 사용 가능합니다.</description>
+		</var>
+		<var name="template_5" type="textarea">
+			<title xml:lang="ko">양식 5</title>
+			<description xml:lang="ko">양식 5의 내용을 입력하세요. HTML 태그 사용 가능합니다.</description>
+		</var>
+	</extra_vars>
 </addon>
