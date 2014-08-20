@@ -1,5 +1,6 @@
 <?php
 	if(!defined("__XE__")) exit();
+	if(Context::get('document_srl')) return;
 	if(Context::get('module')=='admin' && $called_position != 'before_display_content' && $called_position != 'before_module_init'){return;}
 
 	/**
